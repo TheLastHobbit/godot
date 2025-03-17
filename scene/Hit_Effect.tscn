@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c281otfwsqokf"]
+
+[ext_resource type="Script" path="res://scene/hit_effect.gd" id="1_w03pw"]
+
+[sub_resource type="Curve" id="Curve_53pdo"]
+_data = [Vector2(0.0106157, 0.90424), 0.0, 0.0, 0, 0, Vector2(0.617834, 1), 0.0, 0.0, 0, 0, Vector2(0.972399, 0.584262), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jfenp"]
+curve = SubResource("Curve_53pdo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bes5m"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 105.36
+gravity = Vector3(0, 0, 0)
+scale_max = 4.02
+scale_curve = SubResource("CurveTexture_jfenp")
+color = Color(1, 0.254902, 0.67451, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_w03pw")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_bes5m")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0

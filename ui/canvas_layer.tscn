@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8lhxbcj7fg4q"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_26274"]
+[ext_resource type="Script" path="res://ui/canvas_layer.gd" id="1_m7nah"]
+[ext_resource type="Texture2D" uid="uid://1gerqsa7x8m1" path="res://texture/test/Guns/gun3.png" id="2_fqbg3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88aug"]
+bg_color = Color(0.016741, 0.134167, 0.184912, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puim5"]
+bg_color = Color(0.940587, 0.366263, 0.584283, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_m7nah")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 427.0
+offset_bottom = 252.0
+script = ExtResource("1_26274")
+
+[node name="HPControl" type="Control" parent="HUD"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 287.0
+offset_bottom = 46.0
+
+[node name="HPBar" type="ProgressBar" parent="HUD/HPControl"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 25.0
+offset_right = 269.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0.819608, 0.756863, 1)
+theme_override_colors/font_outline_color = Color(0, 0.0862745, 0, 0.572549)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 9
+theme_override_styles/background = SubResource("StyleBoxFlat_88aug")
+theme_override_styles/fill = SubResource("StyleBoxFlat_puim5")
+value = 100.0
+
+[node name="Label" type="Label" parent="HUD/HPControl"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 19.0
+offset_right = 57.0
+offset_bottom = 42.0
+text = "Hp:"
+
+[node name="WeaponHUD" type="Control" parent="HUD"]
+anchors_preset = 0
+offset_left = 461.0
+offset_top = 280.0
+offset_right = 639.0
+offset_bottom = 358.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/WeaponHUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.025
+anchor_top = 1.0
+anchor_right = 1.025
+anchor_bottom = 1.0
+offset_left = -102.45
+offset_top = -61.0
+offset_right = -0.450012
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_fqbg3")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="WeaponName" type="Label" parent="HUD/WeaponHUD"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 2.0
+offset_right = 171.0
+offset_bottom = 29.0
+text = "Weapon"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Bullet" type="Label" parent="HUD/WeaponHUD"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 31.0
+offset_right = 55.0
+offset_bottom = 54.0
+text = "30/30"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Level" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 21.0
+offset_right = 443.0
+offset_bottom = 45.0
+text = "关卡1"

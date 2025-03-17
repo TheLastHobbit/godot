@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://btsjkqbbxoje8"]
+
+[ext_resource type="PackedScene" uid="uid://dcjr6j4s2tbhc" path="res://scene/enemy/goul.tscn" id="1_iyb7t"]
+[ext_resource type="Script" path="res://script/LevelData.gd" id="1_jbtwn"]
+
+[resource]
+script = ExtResource("1_jbtwn")
+enemy = ExtResource("1_iyb7t")
+count = 50
+tick = 2.0
+once_count = 5

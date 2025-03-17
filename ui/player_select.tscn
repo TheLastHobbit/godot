@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxt3hnc30w7te"]
+
+[ext_resource type="PackedScene" uid="uid://dgwdun7y04pdp" path="res://scene/Main.tscn" id="1_a0r3f"]
+[ext_resource type="Script" path="res://ui/player_select.gd" id="1_lhdh6"]
+[ext_resource type="Texture2D" uid="uid://bp8q5boslvsut" path="res://texture/UI/Pixel UI & HUD/Sprites/Panels/Blue/FighterPortrait.png" id="2_3mfxc"]
+[ext_resource type="Script" path="res://ui/SelectUI.gd" id="2_wfjfp"]
+[ext_resource type="Texture2D" uid="uid://p26l7gsguu6c" path="res://texture/UI/Pixel UI & HUD/Sprites/Panels/Blue/FrameDigitalB.png" id="3_s1pqy"]
+[ext_resource type="Texture2D" uid="uid://candu20i1g2sg" path="res://scene/player/panda.png" id="4_hn4re"]
+
+[node name="PlayerSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lhdh6")
+
+[node name="Main" parent="." instance=ExtResource("1_a0r3f")]
+visible = false
+
+[node name="Control2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 34.0
+offset_right = 374.0
+offset_bottom = 297.0
+script = ExtResource("2_wfjfp")
+
+[node name="TextureButton" type="TextureButton" parent="Control2"]
+layout_mode = 2
+offset_left = 39.0
+offset_top = 52.0
+offset_right = 185.0
+offset_bottom = 424.0
+scale = Vector2(0.241553, 0.249694)
+texture_normal = ExtResource("4_hn4re")
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="Control2"]
+layout_mode = 2
+offset_left = 88.0
+offset_top = 50.0
+offset_right = 128.0
+offset_bottom = 148.0
+texture_normal = ExtResource("2_3mfxc")
+
+[node name="TextureButton3" type="TextureButton" parent="Control2"]
+layout_mode = 2
+offset_left = 137.0
+offset_top = 50.0
+offset_right = 177.0
+offset_bottom = 148.0
+texture_normal = ExtResource("2_3mfxc")
+
+[node name="TextureButton4" type="TextureButton" parent="Control2"]
+layout_mode = 2
+offset_left = 184.0
+offset_top = 52.0
+offset_right = 224.0
+offset_bottom = 150.0
+texture_normal = ExtResource("2_3mfxc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.443
+anchor_top = 0.565
+anchor_right = 1.443
+anchor_bottom = 0.565
+offset_left = -488.366
+offset_top = -101.595
+offset_right = -443.366
+offset_bottom = 2.405
+texture = ExtResource("3_s1pqy")
+region_rect = Rect2(0, 0, 32, 30.7621)
+patch_margin_left = 5
+patch_margin_top = 9
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.099986, 0.099986, 0.099986, 1)

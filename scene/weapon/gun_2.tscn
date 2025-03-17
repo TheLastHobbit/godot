@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpme2pd778rmc"]
+
+[ext_resource type="PackedScene" uid="uid://drdqxy4steu6c" path="res://scene/weapon/baseWeapon.tscn" id="1_dxklj"]
+[ext_resource type="Texture2D" uid="uid://0kajpwx02k48" path="res://texture/weapons2/High_Res/High_Res_Gun_01.png" id="2_jbb00"]
+
+[node name="Gun2" instance=ExtResource("1_dxklj")]
+weapon_name = "No.2"
+bullet_max = 60
+damage = 20
+weapon_rof = 0.2
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(12, 0)
+scale = Vector2(0.305556, 0.305556)
+texture = ExtResource("2_jbb00")
+
+[node name="BulletPoint" parent="." index="1"]
+position = Vector2(20, 0)

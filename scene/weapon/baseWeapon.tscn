@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://drdqxy4steu6c"]
+
+[ext_resource type="Script" path="res://scene/weapon/base_weapon.gd" id="1_mvifj"]
+[ext_resource type="Texture2D" uid="uid://ds7e0p1yxc5hg" path="res://texture/weapons2/High_Res/High_Res_Gun_02.png" id="2_uwf8k"]
+[ext_resource type="AudioStream" uid="uid://cyibvrifjppq5" path="res://audio/wpn_fire_m4.mp3" id="3_f4mko"]
+
+[sub_resource type="Curve" id="Curve_jyfsh"]
+_data = [Vector2(0, 0.931555), 0.0, 0.0, 0, 0, Vector2(0.435685, 0.897332), 0.0, 0.0, 0, 0, Vector2(0.96888, 0.336083), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ep7ef"]
+curve = SubResource("Curve_jyfsh")
+
+[sub_resource type="Gradient" id="Gradient_b7sc5"]
+offsets = PackedFloat32Array(0, 0.191038, 0.436321, 0.481132, 0.518868, 0.783019, 0.896226, 0.900943, 1)
+colors = PackedColorArray(0.92549, 0.0784314, 0.729412, 1, 0.960784, 0.376471, 0.0823529, 1, 0, 0, 0, 1, 0.917647, 0.858824, 0.976471, 1, 0.146444, 0.146444, 0.146444, 1, 0.984834, 0.953411, 0.964269, 1, 0.931403, 0.475888, 0.685855, 1, 0.403464, 0.071367, 0.0743764, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5xdxk"]
+gradient = SubResource("Gradient_b7sc5")
+
+[sub_resource type="Curve" id="Curve_orv8o"]
+_data = [Vector2(0.0373444, 0.222008), 0.0, 0.0, 0, 0, Vector2(0.294606, 0.646367), 0.0, 0.0, 0, 0, Vector2(0.475104, 0.913303), 0.0, 0.0, 0, 0, Vector2(0.977179, 0.265356), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_rmbbj"]
+curve = SubResource("Curve_orv8o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k0x4t"]
+particle_flag_disable_z = true
+initial_velocity_min = 30.17
+initial_velocity_max = 73.03
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_rmbbj")
+color_ramp = SubResource("GradientTexture1D_5xdxk")
+alpha_curve = SubResource("CurveTexture_ep7ef")
+
+[node name="BaseWeapon" type="Node2D"]
+script = ExtResource("1_mvifj")
+damage = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12.375, -3.55271e-15)
+scale = Vector2(0.155882, 0.2)
+texture = ExtResource("2_uwf8k")
+
+[node name="BulletPoint" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(20, 0)
+emitting = false
+amount = 11
+process_material = SubResource("ParticleProcessMaterial_k0x4t")
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f4mko")

@@ -1,0 +1,203 @@
+[gd_scene load_steps=23 format=3 uid="uid://d0nxbbr33pjl2"]
+
+[ext_resource type="Script" path="res://ui/main_ui.gd" id="1_8is1g"]
+[ext_resource type="FontFile" uid="uid://bwhjl725mxm3t" path="res://texture/UI/Fonts/Dead Revolver Typeface/Fonts/Arcade/OTF/DeadRevolverArcade.otf" id="3_bdsok"]
+[ext_resource type="Script" path="res://ui/controlButton.gd" id="3_oh7vf"]
+[ext_resource type="Texture2D" uid="uid://bg1ifi0oxwhda" path="res://texture/UI/Pixel UI & HUD/Sprites/Buttons/Blue/ButtonDigital_Press.png" id="5_gwcvr"]
+[ext_resource type="PackedScene" uid="uid://cxt3hnc30w7te" path="res://ui/player_select.tscn" id="6_420ac"]
+
+[sub_resource type="Theme" id="Theme_nhorq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pey5c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8pp42"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrsnr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmmda"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4f87"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_573q3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dh5td"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_baa1i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v26dh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng148"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ti4e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sgx3"]
+atlas = ExtResource("5_gwcvr")
+region = Rect2(0, 0, 52, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gs5c"]
+atlas = ExtResource("5_gwcvr")
+region = Rect2(52, 0, 52, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3c2t"]
+atlas = ExtResource("5_gwcvr")
+region = Rect2(104, 0, 52, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hipd"]
+atlas = ExtResource("5_gwcvr")
+region = Rect2(156, 0, 52, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmt43"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_6sgx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gs5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3c2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hipd")
+}],
+"loop": false,
+"name": &"press",
+"speed": 15.0
+}]
+
+[node name="MainUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8is1g")
+
+[node name="PlayerSelect" parent="." instance=ExtResource("6_420ac")]
+visible = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_oh7vf")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 4.0
+offset_right = 177.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Hero"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.29
+offset_top = -261.95
+offset_right = 162.29
+offset_bottom = -15.95
+grow_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="Start" type="Button" parent="Control/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 28.27)
+layout_mode = 2
+mouse_force_pass_scroll_events = false
+theme = SubResource("Theme_nhorq")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bdsok")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pey5c")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8pp42")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rrsnr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lmmda")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k4f87")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_573q3")
+action_mode = 0
+text = "start"
+
+[node name="Connect" type="Button" parent="Control/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bdsok")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dh5td")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_baa1i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k4f87")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_573q3")
+action_mode = 0
+text = "Connect
+"
+
+[node name="EXIT2" type="Button" parent="Control/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bdsok")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v26dh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ng148")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k4f87")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ti4e3")
+action_mode = 0
+text = "EXIT
+"
+
+[node name="EXIT" type="Button" parent="Control/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bdsok")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v26dh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ng148")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k4f87")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ti4e3")
+action_mode = 0
+text = "EXIT
+"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/VBoxContainer"]
+y_sort_enabled = true
+position = Vector2(77.71, 14.95)
+scale = Vector2(3.60577, 1.73806)
+sprite_frames = SubResource("SpriteFrames_tmt43")
+animation = &"press"
+frame = 3
+frame_progress = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[connection signal="pressed" from="Control/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Connect" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/EXIT2" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/EXIT" to="." method="_on_start_pressed"]
